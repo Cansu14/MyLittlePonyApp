@@ -5,6 +5,5 @@ data class DataResponse(
 
 data class PonyData(
     val name : String,
-    val alias: String,
     val image: List<String>
 )
