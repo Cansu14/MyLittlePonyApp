@@ -42,6 +42,10 @@ android {
 }
 
 dependencies {
+    implementation("androidx.paging:paging-runtime-ktx:3.3.2")
+    implementation("androidx.paging:paging-compose:3.3.2")
+    implementation("androidx.navigation:navigation-compose:2.8.3")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-compiler:2.51.1")
     implementation("io.coil-kt:coil-compose:2.4.0")

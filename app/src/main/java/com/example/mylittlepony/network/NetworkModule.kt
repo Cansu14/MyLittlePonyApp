@@ -1,5 +1,7 @@
 package com.example.mylittlepony.network
 
+import com.example.mylittlepony.data.Repository
+import com.example.mylittlepony.data.RepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,7 +18,7 @@ object NetworkModule {
     @Singleton
     fun provideRetrofitClient(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://ponyapi.net/v1/")
+            .baseUrl("https://ponyapi.net/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
@@ -25,5 +27,11 @@ object NetworkModule {
     @Singleton
     fun provideApiService(retrofit: Retrofit): PonyApiService {
         return retrofit.create(PonyApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRepository(apiService: PonyApiService): Repository {
+        return RepositoryImpl(apiService)
     }
 }

@@ -1,10 +1,7 @@
 package com.example.mylittlepony.data
 
-import com.example.mylittlepony.network.PonyApiService
-import javax.inject.Inject
+interface Repository{
+    suspend fun getPonyData(page:Int) : DataResponse
 
-class Repository @Inject constructor(
-    private val apiService: PonyApiService
-) {
-    suspend fun getPonyData() = apiService.getPonyData()
+    suspend fun getPonyDetail(id: Int): PonyData
 }
